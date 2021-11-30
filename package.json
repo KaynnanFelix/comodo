@@ -1,0 +1,23 @@
+{
+  "name": "comodo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaynnanFelix/comodo.git"
+  },
+  "keywords": [
+    "Node.js", "SQL"
+  ],
+  "author": "Kaynnan Felix <kaynnanap.m.felix@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KaynnanFelix/comodo/issues"
+  },
+  "homepage": "https://github.com/KaynnanFelix/comodo#readme"
+}
