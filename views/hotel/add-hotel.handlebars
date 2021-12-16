@@ -1,0 +1,65 @@
+<form action="/hotel/add-hotel" method="POST">
+    <div>
+        <h1>Hotel Information</h1>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <label for="stars">Stars</label>
+        <select name="stars" id="stars">
+            <option value="one" selected>One</option>
+            <option value="two">Two</option>
+            <option value="three">Three</option>
+            <option value="four">Four</option>
+            <option value="five">Five</option>
+        </select>
+        <label for="type">Type</label>
+        <select name="type" id="type">
+            <option value="hotel" selected>Hotel</option>
+            <option value="resort">Resort</option>
+        </select>
+
+        <label for="description">Description</label>
+        <textarea type="text" name="description" id="description" rows="10" cols="60"
+            placeholder="Description..."></textarea>
+    </div>
+    <div>
+        <h1>Hotel Services</h1>
+
+        <input type="checkbox" name="shuttle" id="shuttle" value="true">
+        <label for="shuttle">Shuttle</label>
+
+        <input type="checkbox" name="parking" id="parking" value="true">
+        <label for="parrking">Parking</label>
+
+        <input type="checkbox" name="pool" id="pool" value="true">
+        <label for="pool">Pool</label>
+
+        <input type="checkbox" name="pet" id="pet" value="true">
+        <label for="pet">Pet</label>
+    </div>
+    <div>
+        <h1>Address Information</h1>
+        <label for="address">Adress</label>
+        <input type="text" name="address" id="address">
+
+        <label for="number">Number</label>
+        <input type="text" name="number" id="number">
+
+        <label for="complement">Complement</label>
+        <input type="text" name="complement" id="complement">
+
+        <label for="district">District</label>
+        <input type="text" name="district" id="district">
+
+        <label for="city">City</label>
+        <input type="text" name="city" id="city">
+
+        <label for="state">State</label>
+        <input type="text" name="state" id="state">
+
+        <label for="country">Country</label>
+        <input type="text" name="country" id="country">
+
+    </div>
+    <button type="submit">Add Hotel</button>
+    <input type="reset" value="Reset">
+</form>

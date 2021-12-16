@@ -1,0 +1,66 @@
+<form action="/hotel/edit-hotel" method="POST">
+    <div>
+        <h1>Hotel Information</h1>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="{{{ hotel.dataValues.name }}}">
+        <label for="stars">Stars</label>
+        <select name="stars" id="stars">
+            <option value="one" {{#equals hotel.dataValues.stars 'one'}}selected{{/equals}}>One</option>
+            <option value="two" {{#equals hotel.dataValues.stars 'two'}}selected{{/equals}}>Two</option>
+            <option value="three" {{#equals hotel.dataValues.stars 'three'}}selected{{/equals}}>Three</option>
+            <option value="four" {{#equals hotel.dataValues.stars 'four'}}selected{{/equals}}>Four</option>
+            <option value="five" {{#equals hotel.dataValues.stars 'five'}}selected{{/equals}}>Five</option>
+        </select>
+        <label for="type">Type</label>
+        <select name="type" id="type">
+            <option value="hotel" {{#equals hotel.dataValues.type 'hotel'}}selected{{/equals}}>Hotel</option>
+            <option value="resort" {{#equals hotel.dataValues.type 'resort'}}selected{{/equals}}>Resort</option>
+        </select>
+
+        <label for="description">Description</label>
+        <textarea type="text" name="description" id="description" rows="10" cols="60"
+            placeholder="{{{ hotel.dataValues.description }}}">{{{ hotel.dataValues.description }}}</textarea>
+    </div>
+    <div>
+        <h1>Hotel Services</h1>
+
+        <input type="checkbox" name="shuttle" id="shuttle" value="true" {{#if hotel.dataValues.shuttle }} checked {{/if}}>
+        <label for="shuttle">Shuttle</label>
+
+        <input type="checkbox" name="parking" id="parking" value="true" {{#if hotel.dataValues.parking }} checked {{/if}}>
+        <label for="parrking">Parking</label>
+
+        <input type="checkbox" name="pool" id="pool" value="true" {{#if hotel.dataValues.pool }} checked {{/if}}>
+        <label for="pool">Pool</label>
+
+        <input type="checkbox" name="pet" id="pet" value="true" {{#if hotel.dataValues.pet }} checked {{/if}}>
+        <label for="pet">Pet</label>
+    </div>
+    <div>
+        <h1>Address Information</h1>
+        <label for="address">Adress</label>
+        <input type="text" name="address" id="address" value="{{{ hotel.dataValues.address }}}">
+
+        <label for="number">Number</label>
+        <input type="text" name="number" id="number" value="{{{ hotel.dataValues.number }}}">
+
+        <label for="complement">Complement</label>
+        <input type="text" name="complement" id="complement" value="{{{ hotel.dataValues.complement }}}">
+
+        <label for="district">District</label>
+        <input type="text" name="district" id="district" value="{{{ hotel.dataValues.district }}}">
+
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" value="{{{ hotel.dataValues.city }}}">
+
+        <label for="state">State</label>
+        <input type="text" name="state" id="state" value="{{{ hotel.dataValues.state }}}">
+
+        <label for="country">Country</label>
+        <input type="text" name="country" id="country" value="{{{ hotel.dataValues.country }}}">
+
+    </div>
+       <input type="hidden" value="{{{hotel.dataValues.idHotel}}}" name="idHotel">
+    <button type="submit">Edit Hotel</button>
+    <input type="reset" value="Reset">
+</form>

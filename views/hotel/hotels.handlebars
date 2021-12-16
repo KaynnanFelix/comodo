@@ -1,0 +1,26 @@
+<h1>List of Hotel</h1>
+<div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+</div>
+<div class="container">
+    <div class="row">
+        {{#each hotels}}
+        <div class="col">
+        <h1>Hotel: {{{ this.dataValues.name }}}</h1>
+        <p>Stars: {{{ this.dataValues.stars }}}<i class="fas fa-star"></i></p>
+        <p>Type: {{{ this.dataValues.type }}}</p>
+        <p>Description: {{{ this.dataValues.description }}}</p>
+        {{#if this.dataValues.shuttle}}<i class="fas fa-shuttle-van"></i>{{/if}}
+        {{#if this.dataValues.parking}}<i class="fas fa-parking"></i>{{/if}}
+        {{#if this.dataValues.pool}}<i class="fas fa-swimmer" disabled></i>{{/if}}
+        {{#if this.dataValues.pet}}<i class="fas fa-paw"></i>{{/if}}
+        <p>Adress: {{{ this.dataValues.address }}} {{{this.dataValues.number}}} - {{{this.dataValues.complement}}},
+            {{{this.dataValues.district}}}, {{{this.dataValues.city}}}, {{{this.dataValues.state}}} -
+            {{{this.dataValues.country}}}</p>
+        <p>Created At: {{{ this.dataValues.createdAt }}}</p>
+        <p>Update At: {{{ this.dataValues.updatedAt }}}</p>
+        <a href="/hotel/hotel/{{{this.dataValues.idHotel}}}">informations</a>
+        </div>
+        {{/each}}
+    </div>
+</div>

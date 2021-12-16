@@ -2,9 +2,9 @@
   "name": "comodo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,12 +12,23 @@
     "url": "git+https://github.com/KaynnanFelix/comodo.git"
   },
   "keywords": [
-    "Node.js", "SQL"
+    "Node.js",
+    "SQL"
   ],
   "author": "Kaynnan Felix <kaynnanap.m.felix@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/KaynnanFelix/comodo/issues"
   },
-  "homepage": "https://github.com/KaynnanFelix/comodo#readme"
+  "homepage": "https://github.com/KaynnanFelix/comodo#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.2",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.12.0-beta.1"
+  }
 }
