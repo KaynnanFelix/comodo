@@ -12,7 +12,6 @@ exports.getHotels = (req, res, next) => {
                 pageTitle: 'Type Hotels',
                 path: '/hotel/hotels'
             })
-            //console.log(hotels)
         }).catch(err => {
             console.log(err)
         })
@@ -23,27 +22,11 @@ exports.getHotels = (req, res, next) => {
                 pageTitle: 'All Hotels',
                 path: '/hotel/hotels'
             })
-            console.log(hotels)
         }).catch(err => {
             console.log(err)
         })
     }
 }
-
-// exports.getTypeHotels = (req, res, next) => {
-//     const type = req.query.type
-//     console.log("Type" + type)
-//     Hotel.findAll({where: {type: type}}).then(hotels => {
-//         res.render('hotel/hotels', {
-//             hotels: hotels,
-//             pageTitle: 'Type Hotels',
-//             path: '/hotel/hotels'
-//         })
-//         //console.log(hotels)
-//     }).catch(err => {
-//         console.log(err)
-//     })
-// }
 
 exports.getAddHotel = (req, res, next) => {
     res.render('hotel/add-hotel', {
@@ -100,9 +83,9 @@ exports.getHotel = (req, res, next) => {
             return res.redirect('/hotel/hotels')
         }
         const name = hotel.name
-        
+
         HotelEmail.findAll({ where: { HotelIdHotel: idHotel } }).then(emails => {
-            
+
             res.render('hotel/hotel', {
                 pageTitle: `${name}`,
                 path: '/hotel/hotel',
@@ -111,11 +94,8 @@ exports.getHotel = (req, res, next) => {
             })
             console.log(emails)
         }).catch(err => {
-            console.log("merda"+err)
+            console.log("merda" + err)
         })
-
-
-        //console.log(hotel)
     }).catch(err => {
         console.log(err)
     })
@@ -132,7 +112,6 @@ exports.getEditHotel = (req, res, next) => {
             path: '/hotel/edit-hotel',
             hotel: hotel
         })
-        console.log(hotel)
     }).catch(err => {
         console.log(err)
     })
@@ -157,7 +136,6 @@ exports.postEditHotel = (req, res, next) => {
     const updatedCountry = req.body.country
 
     const idHotel = req.body.idHotel
-    console.log("id: " + idHotel)
     Hotel.findByPk(idHotel).then(hotel => {
         hotel.name = updatedName,
             hotel.stars = updatedStars,

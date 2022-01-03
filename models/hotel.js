@@ -84,10 +84,7 @@ const Hotel = sequelize.define('Hotel', {
 });
 
 const HotelEmail = sequelize.define('HotelEmail', {
-    // idHotel: {
-    //     type: DataTypes.UUID,
-    //     primaryKey: true
-    // },
+
     email: {
         type: DataTypes.STRING,
         allowNull: true,
@@ -106,28 +103,19 @@ const HotelEmail = sequelize.define('HotelEmail', {
 Hotel.hasMany(HotelEmail, {
     foreignKey: {
         type: DataTypes.UUID
-    } 
+    }
 })
 
-//Hotel.hasMany(HotelEmail)
 HotelEmail.belongsTo(Hotel)
 
-async function sync() {
-    await Hotel.sync({ force: true });
-    console.log("The table for the Hotel model was just (re)created!");
-}
+// async function sync() {
+//     await Hotel.sync({ force: true });
+//     console.log("The table for the Hotel model was just (re)created!");
+// }
 
-//const teste = HotelEmail.create({ HotelIdHotel: '3fec22bb-3ef9-4e4f-882c-b714ee778b47', email: 'teste@teste.com' })
-//const teste2 = HotelEmail.create({ HotelIdHotel: 'bfdaaa79-3d19-45ef-b840-829f14cae37c', email: 'teste2@teste.com' })
-//console.log(teste instanceof HotelEmail)
-//console.log(teste.email)
 // sync()
 
-// `sequelize.define` also returns the model
-console.log(Hotel === sequelize.models.Hotel); // true
-
-module.exports ={
+module.exports = {
     Hotel: Hotel,
     HotelEmail: HotelEmail
-} 
-// module.exports = Hotel
+}
