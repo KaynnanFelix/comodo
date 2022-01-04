@@ -1,0 +1,20 @@
+<h1>Employee Informations</h1>
+<div class="container">
+    <h1>Name: {{{ employee.dataValues.name }}}</h1>
+    <p>Birth Date: {{{ employee.dataValues.birthDate }}}</p>
+    <p>email: {{{ employee.dataValues.email }}}</p>
+    <p>Adress: {{{ employee.dataValues.address }}}</p>
+    <p>Phone: {{{ employee.dataValues.phone }}}</p>
+    <p>Nationality: {{{ employee.dataValues.nationality}}}</p>
+    <p>Document {{{employee.dataValues.documentType}}}: {{{ employee.dataValues.documentNumber }}}</p>
+    <p>Job: {{{ employee.dataValues.job}}}</p>
+    <p>Salary: {{{ employee.dataValues.salary}}}</p>
+    <p>Work Shift: {{{ employee.dataValues.workShift}}}</p>
+    <p>Created At: {{{ employee.dataValues.createdAt }}}</p>
+    <p>Update At: {{{ employee.dataValues.updatedAt }}}</p>
+    <a href="/employee/edit-employee/{{{ employee.dataValues.idEmployee }}}">Edit</a>
+    <form action="/employee/delete-employee" method="POST">
+        <input type="hidden" value="{{{employee.dataValues.idEmployee}}}" name="idEmployee">
+        <button type="submit">Delete</button>
+    </form>
+</div>

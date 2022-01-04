@@ -1,0 +1,10 @@
+<h1>List of Employees</h1>
+<div class="container">
+    <div class="row">
+        {{#each employees}}
+        <div class="col">
+            <a href="/employee/employee/{{{this.dataValues.idEmployee}}}">{{{ this.dataValues.name }}}</a>
+        </div>
+        {{/each}}
+    </div>
+</div>
