@@ -25,6 +25,7 @@ app.set('views', './views')
 
 
 const hotelRoutes = require('./routes/hotel')
+const hostRoutes = require('./routes/host')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -35,6 +36,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/hotel', hotelRoutes)
+app.use('/host', hostRoutes)
 
 app.use((req, res, next) => {
     res.status(404).render('pageNotFound', {pageTitle: '404'})

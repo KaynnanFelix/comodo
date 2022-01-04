@@ -1,0 +1,40 @@
+<form action="/host/edit-host" method="POST">
+    <div>
+        <h1>Host Information</h1>
+
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="{{{ host.dataValues.name }}}">
+
+        <label for="email">E-mail</label>
+        <input type="text" name="email" id="email" value="{{{ host.dataValues.email }}}">
+
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone" value="{{{ host.dataValues.phone }}}">
+
+        <label for="nationality">Nationality</label>
+        <input type="text" name="nationality" id="nationality" value="{{{ host.dataValues.nationality }}}">
+
+        <label for="documentType">Document Type</label>
+        <input type="text" name="documentType" id="documentType" value="{{{ host.dataValues.documentType }}}">
+
+        <label for="documentNumber">Document Number</label>
+        <input type="text" name="documentNumber" id="documentNumber" value="{{{ host.dataValues.documentNumber }}}">
+
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" value="{{{ host.dataValues.address }}}">
+
+        <label for="birthDate">Birth Date</label>
+        <input type="date" name="birthDate" id="birthDate" value="{{{ host.dataValues.birthDate }}}">
+
+        <label for="type">Type</label>
+        <select name="type" id="type">
+            <option value="natural" {{#equals host.dataValues.type 'natural' }}selected{{/equals}}>Natural Person
+            </option>
+            <option value="legal" {{#equals host.dataValues.type 'natural' }}selected{{/equals}}>Legal Person</option>
+        </select>
+    </div>
+
+    <input type="hidden" value="{{{host.dataValues.idHost}}}" name="idhost">
+    <button type="submit">Edit host</button>
+    <input type="reset" value="Reset">
+</form>

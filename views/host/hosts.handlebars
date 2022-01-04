@@ -1,0 +1,10 @@
+<h1>List of Hosts</h1>
+<div class="container">
+    <div class="row">
+        {{#each hosts}}
+        <div class="col">
+            <a href="/host/host/{{{this.dataValues.idHost}}}">{{{ this.dataValues.name }}}</a>
+        </div>
+        {{/each}}
+    </div>
+</div>

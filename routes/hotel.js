@@ -4,8 +4,6 @@ const hotelController = require('../controllers/hotel')
 const router = express.Router()
 // get all hotels
 router.get('/hotels', hotelController.getHotels)
-//router.get('/hotels/?type=:type', hotelController.getTypeHotels)
-//router.get('/:productId')
 
 // add new hotel
 router.get('/add-hotel', hotelController.getAddHotel)
