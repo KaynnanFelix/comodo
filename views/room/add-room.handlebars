@@ -1,0 +1,48 @@
+<form action="/room/add-room" method="POST">
+    <div>
+        <h1>Room Information</h1>
+        <label for="roomNumber">Room Number</label>
+        <input type="text" name="roomNumber" id="roomNumber" value="{{{ room.dataValues.roomNumber }}}">
+
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="{{{ room.dataValues.name }}}">
+
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" value="{{{ room.dataValues.description }}}">
+
+        <label for="floor">Floor</label>
+        <input type="text" name="floor" id="floor" value="{{{ room.dataValues.floor }}}">
+
+        <label for="dailyCost">Daily Cost</label>
+        <input type="number" name="dailyCost" id="dailyCost" value="{{{ room.dataValues.dailyCost }}}">
+
+        <label for="type">Type</label>
+        <select name="type" id="type">
+            <option value="single" {{#equals room.dataValues.type 'single' }}selected{{/equals}}>Single</option>
+            <option value="double" {{#equals room.dataValues.type 'double' }}selected{{/equals}}>Double</option>
+        </select>
+
+        <label for="classRoom">Class Room</label>
+        <select name="classRoom" id="classRoom">
+            <option value="deluxe" {{#equals room.dataValues.classRoom 'deluxe' }}selected{{/equals}}>Deluxe</option>
+            <option value="standard" {{#equals room.dataValues.classRoom 'standard' }}selected{{/equals}}>Standard
+            </option>
+        </select>
+
+        <label for="status">Status</label>
+        <select name="status" id="status">
+            <option value="available" {{#equals room.dataValues.status 'available' }}selected{{/equals}}>Available
+            </option>
+            <option value="not available" {{#equals room.dataValues.status 'not available' }}selected{{/equals}}>Not
+                Available</option>
+        </select>
+    </div>
+    <label for="HotelIdHotel">Hotel</label>
+    <select name="HotelIdHotel" id="HotelIdHotel">
+        {{#each hotels}}
+        <option value="{{{this.dataValues.idHotel}}}">{{{this.dataValues.name}}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Add Room</button>
+    <input type="reset" value="Reset">
+</form>

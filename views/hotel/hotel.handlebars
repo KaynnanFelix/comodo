@@ -15,6 +15,7 @@
         <p>Update At: {{{ hotel.dataValues.updatedAt }}}</p>
         </div>
         <a href="/hotel/edit-hotel/{{{ hotel.dataValues.idHotel }}}">Edit</a>
+        <a href="/room/rooms/?idHotel={{{ hotel.dataValues.idHotel }}}">Rooms</a>
         <form action="/hotel/delete-hotel" method="POST">
             <input type="hidden" value="{{{hotel.dataValues.idHotel}}}" name="idHotel">
             <button type="submit">Delete</button>

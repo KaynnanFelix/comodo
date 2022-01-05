@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize')
 
 const sequelize = require('../util/database');
 const Employee = require('./employee');
+const Room = require('./room');
 
 const Hotel = sequelize.define('Hotel', {
     // Model attributes are defined here
@@ -113,6 +114,9 @@ HotelEmail.belongsTo(Hotel)
 
 Hotel.hasMany(Employee, {as: 'hotel'})
 Employee.belongsTo(Hotel)
+
+Hotel.hasMany(Room, {as: 'HotelIdHotel'})
+Room.belongsTo(Hotel)
 
 
 
