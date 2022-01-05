@@ -1,0 +1,10 @@
+<h1>List of Bookings</h1>
+<div class="container">
+    <div class="row">
+        {{#each bookings}}
+        <div class="col">
+            <a href="/booking/booking/{{{this.dataValues.idBooking}}}">{{{ this.dataValues.idBooking }}}</a>
+        </div>
+        {{/each}}
+    </div>
+</div>

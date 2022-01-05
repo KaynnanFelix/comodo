@@ -1,0 +1,13 @@
+<form action="/booking/edit-booking" method="POST">
+    <div>
+        <h1>Booking Information</h1>
+        <label for="category">Category</label>
+        <select name="category" id="category">
+            <option value="all inclusive" {{#equals booking.dataValues.category 'all inclusive' }}selected{{/equals}}>All Inclusive</option>
+            <option value="pension" {{#equals booking.dataValues.category 'pension' }}selected{{/equals}}>Pension</option>
+        </select>
+    </div>
+     <input type="hidden" value="{{{ booking.dataValues.idBooking }}}" name="idBooking">
+    <button type="submit">Edit Room</button>
+    <input type="reset" value="Reset">
+</form>

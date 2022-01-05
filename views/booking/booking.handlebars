@@ -1,0 +1,13 @@
+<h1>Booking Informations</h1>
+<div class="container">
+    <h1>ID: {{{ booking.dataValues.idBooking }}}</h1>
+    <p>ID Host: {{{ booking.dataValues.HostIdHost }}}</p>
+    <p>Category: {{{ booking.dataValues.category }}}</p>
+    <p>Created At: {{{ booking.dataValues.createdAt }}}</p>
+    <p>Update At: {{{ booking.dataValues.updatedAt }}}</p>
+    <a href="/booking/edit-booking/{{{ booking.dataValues.idBooking }}}">Edit</a>
+    <form action="/booking/delete-booking" method="POST">
+        <input type="hidden" value="{{{booking.dataValues.idBooking}}}" name="idBooking">
+        <button type="submit">Delete</button>
+    </form>
+</div>

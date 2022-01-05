@@ -1,0 +1,19 @@
+<form action="/booking/add-booking" method="POST">
+    <div>
+        <h1>Booking Information</h1>
+        <label for="category">Category</label>
+        <select name="category" id="category">
+            <option value="all inclusive" selected>All Inclusive</option>
+            <option value="pension">Pension</option>
+        </select>
+
+        <label for="HostIdHost">Host</label>
+        <select name="HostIdHost" id="HostIdHost">
+            {{#each hosts}}
+            <option value="{{{this.dataValues.idHost}}}">{{{this.dataValues.name}}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <button type="submit">Add Room</button>
+    <input type="reset" value="Reset">
+</form>
