@@ -11,3 +11,31 @@
         <button type="submit">Delete</button>
     </form>
 </div>
+<h1>Booking</h1>
+{{#each bookingRooms}}
+ <a href="/room/room/{{{this.dataValues.RoomId}}}">{{{this.dataValues.RoomId}}}</a>
+ <form action="/booking/delete-booking-room/{{{ booking.dataValues.idBooking }}}" method="POST">
+        <input type="hidden" value="{{{this.dataValues.RoomId}}}" name="RoomId">
+        <input type="hidden" value="{{{ this.dataValues.BookingId }}}" name="BookingId">
+        <button type="submit">Delete</button>
+    </form>
+{{/each}}
+<form action="/booking/add-booking-room" method="POST">
+    <div>
+        <label for="startDate">Start Date</label>
+        <input type="date" name="startDate" id="startDate">
+
+        <label for="endDate">End Date</label>
+        <input type="date" name="endDate" id="endDate">
+
+        <label for="idRoom">Room</label>
+        <select name="idRoom" id="idRoom">
+            {{#each rooms}}
+            <option value="{{{this.dataValues.idRoom}}}">{{{this.dataValues.roomNumber}}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <input type="hidden" value="{{{booking.dataValues.idBooking}}}" name="idBooking">
+    <button type="submit">Add Room in Booking</button>
+    <input type="reset" value="Reset">
+</form>

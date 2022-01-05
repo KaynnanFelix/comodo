@@ -2,7 +2,6 @@ const { DataTypes } = require('sequelize')
 
 const sequelize = require('../util/database');
 const Host = require('./host');
-const Room = require('./room');
 
 const Booking = sequelize.define('Booking', {
     idBooking: {

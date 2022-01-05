@@ -12,11 +12,15 @@ router.post('/add-booking', bookingController.postAddBooking)
 // get booking by uuid
 router.get('/booking/:idBooking', bookingController.getBooking)
 
-// edit host
+// edit booking
 router.get('/edit-booking/:idBooking', bookingController.getEditBooking)
 router.post('/edit-booking', bookingController.postEditBooking)
 
-// delete host by uuid
+// delete booking by uuid
 router.post('/delete-booking', bookingController.postDeleteBooking)
+
+// Create and Delete Room in Booking
+router.post('/add-booking-room', bookingController.postAddBookingRoom)
+router.post('/delete-booking-room', bookingController.postDeleteBookingRoom)
 
 module.exports = router
