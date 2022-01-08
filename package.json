@@ -12,8 +12,10 @@
     "url": "git+https://github.com/KaynnanFelix/comodo.git"
   },
   "keywords": [
-    "Node.js",
-    "SQL"
+    "NodeJS",
+    "Express",
+    "SQL",
+    "Sequelize"
   ],
   "author": "Kaynnan Felix <kaynnanap.m.felix@gmail.com>",
   "license": "MIT",
@@ -30,5 +32,8 @@
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.12.0-beta.1"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }

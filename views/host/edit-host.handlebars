@@ -1,40 +1,62 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/host/hosts">Hosts</a></li>
+        <li class="breadcrumb-item"><a href="/host/host/{{{host.dataValues.idHost}}}">{{{host.dataValues.name}}}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Edit {{{host.dataValues.name}}}</li>
+    </ol>
+</nav>
+<h1>Host Information</h1>
 <form action="/host/edit-host" method="POST">
-    <div>
-        <h1>Host Information</h1>
-
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" value="{{{ host.dataValues.name }}}">
-
-        <label for="email">E-mail</label>
-        <input type="text" name="email" id="email" value="{{{ host.dataValues.email }}}">
-
-        <label for="phone">Phone</label>
-        <input type="text" name="phone" id="phone" value="{{{ host.dataValues.phone }}}">
-
-        <label for="nationality">Nationality</label>
-        <input type="text" name="nationality" id="nationality" value="{{{ host.dataValues.nationality }}}">
-
-        <label for="documentType">Document Type</label>
-        <input type="text" name="documentType" id="documentType" value="{{{ host.dataValues.documentType }}}">
-
-        <label for="documentNumber">Document Number</label>
-        <input type="text" name="documentNumber" id="documentNumber" value="{{{ host.dataValues.documentNumber }}}">
-
-        <label for="address">Address</label>
-        <input type="text" name="address" id="address" value="{{{ host.dataValues.address }}}">
-
-        <label for="birthDate">Birth Date</label>
-        <input type="date" name="birthDate" id="birthDate" value="{{{ host.dataValues.birthDate }}}">
-
-        <label for="type">Type</label>
-        <select name="type" id="type">
-            <option value="natural" {{#equals host.dataValues.type 'natural' }}selected{{/equals}}>Natural Person
-            </option>
-            <option value="legal" {{#equals host.dataValues.type 'natural' }}selected{{/equals}}>Legal Person</option>
-        </select>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{{ host.dataValues.name }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="text" class="form-control" name="email" id="email" value="{{{ host.dataValues.email }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" name="phone" id="phone" value="{{{ host.dataValues.phone }}}">
+        </div>
+        <div class="col-md-2">
+            <label for="nationality" class="form-label">Nationality</label>
+            <input type="text" class="form-control" name="nationality" id="nationality"
+                value="{{{ host.dataValues.nationality }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="documentType" class="form-label">Document Type</label>
+            <input type="text" class="form-control" name="documentType" id="documentType"
+                value="{{{ host.dataValues.documentType }}}">
+        </div>
+        <div class="col-md-6">
+            <label for="documentNumber" class="form-label">Document Number</label>
+            <input type="text" class="form-control" name="documentNumber" id="documentNumber"
+                value="{{{ host.dataValues.documentNumber }}}">
+        </div>
+        <div class="col-md-8">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" name="address" id="address" value="{{{ host.dataValues.address }}}">
+        </div>
+        <div class="col-md-2">
+            <label for="birthDate" class="form-label">Birth Date</label>
+            <input type="date" class="form-control" name="birthDate" id="birthDate"
+                value="{{{ host.dataValues.birthDate }}}">
+        </div>
+        <div class="col-md-2">
+            <label for="type" class="form-label">Type</label>
+            <select name="type" id="type" class="form-select">
+                <option value="natural" {{#equals host.dataValues.type 'natural' }}selected{{/equals}}>Natural Person
+                </option>
+                <option value="legal" {{#equals host.dataValues.type 'natural' }}selected{{/equals}}>Legal Person
+                </option>
+            </select>
+        </div>
     </div>
 
     <input type="hidden" value="{{{host.dataValues.idHost}}}" name="idhost">
-    <button type="submit">Edit host</button>
-    <input type="reset" value="Reset">
+    <button type="submit" class="btn btn-primary">Edit host</button>
+    <input type="reset" value="Reset" class="btn btn-secondary">
 </form>

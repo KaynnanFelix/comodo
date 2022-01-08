@@ -1,20 +1,34 @@
-<h1>Employee Informations</h1>
 <div class="container">
-    <h1>Name: {{{ employee.dataValues.name }}}</h1>
-    <p>Birth Date: {{{ employee.dataValues.birthDate }}}</p>
-    <p>email: {{{ employee.dataValues.email }}}</p>
-    <p>Adress: {{{ employee.dataValues.address }}}</p>
-    <p>Phone: {{{ employee.dataValues.phone }}}</p>
-    <p>Nationality: {{{ employee.dataValues.nationality}}}</p>
-    <p>Document {{{employee.dataValues.documentType}}}: {{{ employee.dataValues.documentNumber }}}</p>
-    <p>Job: {{{ employee.dataValues.job}}}</p>
-    <p>Salary: {{{ employee.dataValues.salary}}}</p>
-    <p>Work Shift: {{{ employee.dataValues.workShift}}}</p>
-    <p>Created At: {{{ employee.dataValues.createdAt }}}</p>
-    <p>Update At: {{{ employee.dataValues.updatedAt }}}</p>
-    <a href="/employee/edit-employee/{{{ employee.dataValues.idEmployee }}}">Edit</a>
-    <form action="/employee/delete-employee" method="POST">
-        <input type="hidden" value="{{{employee.dataValues.idEmployee}}}" name="idEmployee">
-        <button type="submit">Delete</button>
-    </form>
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/employee/employees">Employees</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{{employee.dataValues.name}}}</li>
+        </ol>
+    </nav>
+    <div class="card text-center">
+        <div class="card-header">
+            <h1>{{{ employee.dataValues.name }}}</h1>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{{ host.dataValues.nationality}}} {{{ host.dataValues.type}}}</h5>
+            <p class="card-text">Birth Date: {{{ employee.dataValues.birthDate }}}</p>
+            <p class="card-text">Email: {{{ employee.dataValues.email }}}</p>
+            <p class="card-text">Phone: {{{ employee.dataValues.phone }}}</p>
+            <p class="card-text">Adress: {{{ employee.dataValues.address }}}</p>
+            <p class="card-text">Nationality: {{{ employee.dataValues.nationality}}}</p>
+            <p class="card-text">Document {{{host.dataValues.documentType}}}: {{{ host.dataValues.documentNumber }}}</p>
+            <p class="card-text">Job: {{{ employee.dataValues.job}}}</p>
+            <p class="card-text">Work Shift: {{{ employee.dataValues.workShift}}}</p>
+            <p class="card-text">Salary: {{{ employee.dataValues.salary}}}</p>
+            <a href="/employee/edit-employee/{{{ employee.dataValues.idEmployee }}}" class="btn btn-primary">Edit</a>
+            <form action="/employee/delete-employee" method="POST">
+                <input type="hidden" value="{{{employee.dataValues.idEmployee}}}" name="idEmployee">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            <p>Created At: {{{ employee.dataValues.createdAt }}}</p>
+            <p>Update At: {{{ employee.dataValues.updatedAt }}}</p>
+        </div>
+    </div>
 </div>

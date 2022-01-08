@@ -1,9 +1,25 @@
-<h1>List of Hosts</h1>
 <div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Hosts</li>
+        </ol>
+    </nav>
+    <h1>List of Hosts <a href="/host/add-host" class="btn btn-outline-success btn-sm" role="button">New Host</a></h1>
     <div class="row">
         {{#each hosts}}
         <div class="col">
-            <a href="/host/host/{{{this.dataValues.idHost}}}">{{{ this.dataValues.name }}}</a>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{{ this.dataValues.name }}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{{ this.dataValues.nationality }}} {{{
+                        this.dataValues.type }}}</h6>
+                    <p class="card-text">{{{ this.dataValues.address }}}</p>
+                    <a href="/host/host/{{{this.dataValues.idHost}}}">Informations</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Update At: {{{ this.dataValues.updatedAt }}}</small>
+                </div>
+            </div>
         </div>
         {{/each}}
     </div>

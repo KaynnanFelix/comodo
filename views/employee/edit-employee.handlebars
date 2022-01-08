@@ -1,51 +1,86 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/employee/employees">Employees</a></li>
+        <li class="breadcrumb-item"><a
+                href="/employee/employee/{{{employee.dataValues.idEmployee}}}">{{{employee.dataValues.name}}}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Edit {{{employee.dataValues.name}}}</li>
+    </ol>
+</nav>
+<h1>Employee Information</h1>
 <form action="/employee/edit-employee" method="POST">
-    <div>
-        <h1>Employee Information</h1>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" value="{{{ employee.dataValues.name }}}">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{{ employee.dataValues.name }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="text" class="form-control" name="email" id="email" value="{{{ employee.dataValues.email }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" name="phone" id="phone" value="{{{ employee.dataValues.phone }}}">
+        </div>
+        <div class="col-md-2">
+            <label for="nationality" class="form-label">Nationality</label>
+            <input type="text" class="form-control" name="nationality" id="nationality"
+                value="{{{ employee.dataValues.nationality }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="documentType" class="form-label">Document Type</label>
+            <input type="text" class="form-control" name="documentType" id="documentType"
+                value="{{{ employee.dataValues.documentType }}}">
+        </div>
+        <div class="col-md-6">
+            <label for="documentNumber" class="form-label">Document Number</label>
+            <input type="text" class="form-control" name="documentNumber" id="documentNumber"
+                value="{{{ employee.dataValues.documentNumber }}}">
+        </div>
+        <div class="col-md-8">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" name="address" id="address"
+                value="{{{ employee.dataValues.address }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="birthDate" class="form-label">Birth Date</label>
+            <input type="date" class="form-control" name="birthDate" id="birthDate"
+                value="{{{ employee.dataValues.birthDate }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="job" class="form-label">Job</label>
+            <select name="job" id="job" class="form-select">
+                <option value="manager" {{#equals employee.dataValues.job 'manager' }}selected{{/equals}}>Manager
+                </option>
+                <option value="receptionist" {{#equals employee.dataValues.job 'receptionist' }}selected{{/equals}}>
+                    Receptionistn</option>
+                <option value="maid" {{#equals employee.dataValues.job 'maid' }}selected{{/equals}}>Maid</option>
+                <option value="security" {{#equals employee.dataValues.job 'security' }}selected{{/equals}}>Security
+                </option>
+                <option value="cleaning" {{#equals employee.dataValues.job 'cleaning' }}selected{{/equals}}>Cleaning
+                </option>
+            </select>
+        </div>
 
-        <label for="email">E-mail</label>
-        <input type="text" name="email" id="email" value="{{{ employee.dataValues.email }}}">
 
-        <label for="phone">Phone</label>
-        <input type="text" name="phone" id="phone" value="{{{ employee.dataValues.phone }}}">
-
-        <label for="nationality">Nationality</label>
-        <input type="text" name="nationality" id="nationality" value="{{{ employee.dataValues.nationality }}}">
-
-        <label for="documentType">Document Type</label>
-        <input type="text" name="documentType" id="documentType" value="{{{ employee.dataValues.documentType }}}">
-
-        <label for="documentNumber">Document Number</label>
-        <input type="text" name="documentNumber" id="documentNumber" value="{{{ employee.dataValues.documentNumber }}}">
-
-        <label for="address">Address</label>
-        <input type="text" name="address" id="address" value="{{{ employee.dataValues.address }}}">
-
-        <label for="birthDate">Birth Date</label>
-        <input type="date" name="birthDate" id="birthDate" value="{{{ employee.dataValues.birthDate }}}">
-
-        <label for="job">Job</label>
-        <select name="job" id="job">
-            <option value="manager" {{#equals employee.dataValues.job 'manager' }}selected{{/equals}}>Manager</option>
-            <option value="receptionist" {{#equals employee.dataValues.job 'receptionist' }}selected{{/equals}}>Receptionistn</option>
-            <option value="maid" {{#equals employee.dataValues.job 'maid' }}selected{{/equals}}>Maid</option>
-            <option value="security" {{#equals employee.dataValues.job 'security' }}selected{{/equals}}>Security</option>
-            <option value="cleaning" {{#equals employee.dataValues.job 'cleaning' }}selected{{/equals}}>Cleaning</option>
-        </select>
-
-        <label for="salary">Salary</label>
-        <input type="number" name="salary" id="salary" value="{{{ employee.dataValues.salary }}}">
-
-        <label for="workShift">Work Shift</label>
-        <select name="workShift" id="workShift">
-            <option value="morning" {{#equals employee.dataValues.workShift 'morning' }}selected{{/equals}}>Morning</option>
-            <option value="afternoon" {{#equals employee.dataValues.workShift 'afternoon' }}selected{{/equals}}>Afternoon</option>
-            <option value="night" {{#equals employee.dataValues.workShift 'night' }}selected{{/equals}}>Night</option>
-        </select>
-
+        <div class="col-md-4">
+            <label for="workShift" class="form-label">Work Shift</label>
+            <select name="workShift" id="workShift" class="form-select">
+                <option value="morning" {{#equals employee.dataValues.workShift 'morning' }}selected{{/equals}}>Morning
+                </option>
+                <option value="afternoon" {{#equals employee.dataValues.workShift 'afternoon' }}selected{{/equals}}>
+                    Afternoon</option>
+                <option value="night" {{#equals employee.dataValues.workShift 'night' }}selected{{/equals}}>Night
+                </option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="number" class="form-control" name="salary" id="salary"
+                value="{{{ employee.dataValues.salary }}}">
+        </div>
     </div>
     <input type="hidden" value="{{{employee.dataValues.idEmployee}}}" name="idemployee">
-    <button type="submit">Edit Employee</button>
-    <input type="reset" value="Reset">
+    <button type="submit" class="btn btn-primary">Edit Employee</button>
+    <input type="reset" value="Reset" class="btn btn-secondary">
 </form>

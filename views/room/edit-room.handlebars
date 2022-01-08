@@ -1,40 +1,72 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/hotel/hotels">Hotels</a></li>
+        <li class="breadcrumb-item"><a href="/room/rooms/?idHotel={{{room.dataValues.HotelIdHotel}}}">{{{room.dataValues.HotelIdHotel}}}</a></li>
+        <li class="breadcrumb-item"><a href="/room/room/{{{room.dataValues.idRoom}}}">{{{room.dataValues.roomNumber}}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page"> Edit {{{room.dataValues.roomNumber}}}</li>
+    </ol>
+</nav>
+<h1>Room Information</h1>
 <form action="/room/edit-room" method="POST">
-    <div>
-        <h1>Room Information</h1>
-        <label for="roomNumber">Room Number</label>
-        <input type="text" name="roomNumber" id="roomNumber" value="{{{ room.dataValues.roomNumber }}}">
-
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" value="{{{ room.dataValues.name }}}">
-
-        <label for="description">Description</label>
-        <input type="text" name="description" id="description" value="{{{ room.dataValues.description }}}">
-
-        <label for="floor">Floor</label>
-        <input type="text" name="floor" id="floor" value="{{{ room.dataValues.floor }}}">
-
-        <label for="dailyCost">Daily Cost</label>
-        <input type="text" name="dailyCost" id="dailyCost" value="{{{ room.dataValues.dailyCost }}}">
-
-        <label for="type">Type</label>
-        <select name="type" id="type">
-            <option value="single" {{#equals room.dataValues.type 'single' }}selected{{/equals}}>Single</option>
-            <option value="double" {{#equals room.dataValues.type 'double' }}selected{{/equals}}>Double</option>
-        </select>
-
-        <label for="classRoom">Class Room</label>
-        <select name="classRoom" id="classRoom">
-            <option value="deluxe" {{#equals room.dataValues.classRoom 'deluxe' }}selected{{/equals}}>Deluxe</option>
-            <option value="standard" {{#equals room.dataValues.classRoom 'standard' }}selected{{/equals}}>Standard</option>
-        </select>
-
-        <label for="status">Status</label>
-        <select name="status" id="status">
-            <option value="available" {{#equals room.dataValues.status 'available' }}selected{{/equals}}>Available</option>
-            <option value="not available" {{#equals room.dataValues.status 'not available' }}selected{{/equals}}>Not Available</option>
-        </select>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="roomNumber" class="form-label">Room Number</label>
+            <input type="text" class="form-control" name="roomNumber" id="roomNumber"
+                value="{{{ room.dataValues.roomNumber }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{{ room.dataValues.name }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" name="description" id="description"
+                value="{{{ room.dataValues.description }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="floor" class="form-label">Floor</label>
+            <input type="text" class="form-control" name="floor" id="floor" value="{{{ room.dataValues.floor }}}">
+        </div>
+        <div class="col-md-6">
+            <label for="dailyCost" class="form-label">Daily Cost</label>
+            <input type="number" class="form-control" name="dailyCost" id="dailyCost"
+                value="{{{ room.dataValues.dailyCost }}}">
+        </div>
+        <div class="col-md-2">
+            <label for="type" class="form-label">Type</label>
+            <select name="type" id="type" class="form-select">
+                <option value="single" {{#equals room.dataValues.type 'single' }}selected{{/equals}}>Single</option>
+                <option value="double" {{#equals room.dataValues.type 'double' }}selected{{/equals}}>Double</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label for="classRoom" class="form-label">Class Room</label>
+            <select name="classRoom" id="classRoom" class="form-select">
+                <option value="deluxe" {{#equals room.dataValues.classRoom 'deluxe' }}selected{{/equals}}>Deluxe
+                </option>
+                <option value="standard" {{#equals room.dataValues.classRoom 'standard' }}selected{{/equals}}>Standard
+                </option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="status" class="form-label">Status</label>
+            <select name="status" id="status" class="form-select">
+                <option value="available" {{#equals room.dataValues.status 'available' }}selected{{/equals}}>Available
+                </option>
+                <option value="not available" {{#equals room.dataValues.status 'not available' }}selected{{/equals}}>Not
+                    Available</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="HotelIdHotel" class="form-label">Hotel</label>
+            <select name="HotelIdHotel" id="HotelIdHotel" class="form-select">
+                {{#each hotels}}
+                <option value="{{{this.dataValues.idHotel}}}">{{{this.dataValues.name}}}</option>
+                {{/each}}
+            </select>
+        </div>
     </div>
     <input type="hidden" value="{{{ room.dataValues.idRoom }}}" name="idRoom">
-    <button type="submit">Edit Room</button>
-    <input type="reset" value="Reset">
+    <button type="submit" class="btn btn-primary">Edit Room</button>
+    <input type="reset" value="Reset" class="btn btn-secondary">
 </form>

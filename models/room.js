@@ -40,7 +40,7 @@ const Room = sequelize.define('Room', {
         allowNull: true
     },
     dailyCost: {
-        type: DataTypes.DECIMAL(2),
+        type: DataTypes.DECIMAL(10, 2),
         allowNull: false
     },
 }, {

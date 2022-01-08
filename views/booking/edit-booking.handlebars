@@ -1,13 +1,26 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/booking/bookings">Bookings</a></li>
+        <li class="breadcrumb-item"><a
+                href="/booking/booking/{{{booking.dataValues.idBooking}}}">{{{booking.dataValues.idBooking}}}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Edit {{{booking.dataValues.idBooking}}}</li>
+    </ol>
+</nav>
+<h1>Booking Information</h1>
 <form action="/booking/edit-booking" method="POST">
-    <div>
-        <h1>Booking Information</h1>
-        <label for="category">Category</label>
-        <select name="category" id="category">
-            <option value="all inclusive" {{#equals booking.dataValues.category 'all inclusive' }}selected{{/equals}}>All Inclusive</option>
-            <option value="pension" {{#equals booking.dataValues.category 'pension' }}selected{{/equals}}>Pension</option>
-        </select>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="category" class="form-label">Category</label>
+            <select name="category" id="category" class="form-select">
+                <option value="all inclusive" {{#equals booking.dataValues.category 'all inclusive'
+                    }}selected{{/equals}}>All Inclusive</option>
+                <option value="pension" {{#equals booking.dataValues.category 'pension' }}selected{{/equals}}>Pension
+                </option>
+            </select>
+        </div>
     </div>
-     <input type="hidden" value="{{{ booking.dataValues.idBooking }}}" name="idBooking">
-    <button type="submit">Edit Room</button>
-    <input type="reset" value="Reset">
+    <input type="hidden" value="{{{ booking.dataValues.idBooking }}}" name="idBooking">
+    <button type="submit" class="btn btn-primary">Edit Room</button>
+    <input type="reset" value="Reset" class="btn btn-secondary">
 </form>

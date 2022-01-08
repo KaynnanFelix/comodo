@@ -1,25 +1,35 @@
-<h1>List of Hotel</h1>
-<div class="alert alert-primary" role="alert">
-  A simple primary alert—check it out!
-</div>
 <div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Hotels</li>
+        </ol>
+    </nav>
+    <h1>List of Hotels
+        <a href="/hotel/add-hotel" class="btn btn-outline-success btn-sm" role="button">New Hotel</a>
+    </h1>
+    <div class="btn-group">
+        <a href="/hotel/hotels?type=hotel" class="btn btn-primary active" aria-current="page">Hotel</a>
+        <a href="/hotel/hotels?type=resort" class="btn btn-primary">Resort</a>
+    </div>
     <div class="row">
         {{#each hotels}}
         <div class="col">
-        <h1>Hotel: {{{ this.dataValues.name }}}</h1>
-        <p>Stars: {{{ this.dataValues.stars }}}<i class="fas fa-star"></i></p>
-        <p>Type: {{{ this.dataValues.type }}}</p>
-        <p>Description: {{{ this.dataValues.description }}}</p>
-        {{#if this.dataValues.shuttle}}<i class="fas fa-shuttle-van"></i>{{/if}}
-        {{#if this.dataValues.parking}}<i class="fas fa-parking"></i>{{/if}}
-        {{#if this.dataValues.pool}}<i class="fas fa-swimmer" disabled></i>{{/if}}
-        {{#if this.dataValues.pet}}<i class="fas fa-paw"></i>{{/if}}
-        <p>Adress: {{{ this.dataValues.address }}} {{{this.dataValues.number}}} - {{{this.dataValues.complement}}},
-            {{{this.dataValues.district}}}, {{{this.dataValues.city}}}, {{{this.dataValues.state}}} -
-            {{{this.dataValues.country}}}</p>
-        <p>Created At: {{{ this.dataValues.createdAt }}}</p>
-        <p>Update At: {{{ this.dataValues.updatedAt }}}</p>
-        <a href="/hotel/hotel/{{{this.dataValues.idHotel}}}">informations</a>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{{ this.dataValues.name }}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{{ this.dataValues.type }}}</h6>
+                    <p class="card-text">{{{ this.dataValues.description }}}</p>
+                    {{#if this.dataValues.shuttle}}<i class="fas fa-shuttle-van"></i>{{/if}}
+                    {{#if this.dataValues.parking}}<i class="fas fa-parking"></i>{{/if}}
+                    {{#if this.dataValues.pool}}<i class="fas fa-swimmer" disabled></i>{{/if}}
+                    {{#if this.dataValues.pet}}<i class="fas fa-paw"></i>{{/if}}
+                    </p>
+                    <a href="/hotel/hotel/{{{this.dataValues.idHotel}}}" class="card-link">Informations</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Update At: {{{ this.dataValues.updatedAt }}}</small>
+                </div>
+            </div>
         </div>
         {{/each}}
     </div>

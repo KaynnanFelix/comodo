@@ -1,41 +1,60 @@
-<h1>Booking Informations</h1>
 <div class="container">
-    <h1>ID: {{{ booking.dataValues.idBooking }}}</h1>
-    <p>ID Host: {{{ booking.dataValues.HostIdHost }}}</p>
-    <p>Category: {{{ booking.dataValues.category }}}</p>
-    <p>Created At: {{{ booking.dataValues.createdAt }}}</p>
-    <p>Update At: {{{ booking.dataValues.updatedAt }}}</p>
-    <a href="/booking/edit-booking/{{{ booking.dataValues.idBooking }}}">Edit</a>
-    <form action="/booking/delete-booking" method="POST">
-        <input type="hidden" value="{{{booking.dataValues.idBooking}}}" name="idBooking">
-        <button type="submit">Delete</button>
-    </form>
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/booking/bookings">Bookings</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{{booking.dataValues.idBooking}}}</li>
+        </ol>
+    </nav>
 </div>
+<div class="card text-center">
+    <div class="card-header">
+        <h1>{{{ booking.dataValues.idBooking }}}</h1>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">ID Host: {{{ booking.dataValues.HostIdHost }}}</h5>
+        <p class="card-text">Category: {{{ booking.dataValues.category }}}</p>
+        <a href="/booking/edit-booking/{{{ booking.dataValues.idBooking }}}" class="btn btn-primary">Edit</a>
+        <form action="/booking/delete-booking" method="POST">
+            <input type="hidden" value="{{{booking.dataValues.idBooking}}}" name="idBooking">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+    <div class="card-footer text-muted">
+        <p>Created At: {{{ booking.dataValues.createdAt }}}</p>
+        <p>Update At: {{{ booking.dataValues.updatedAt }}}</p>
+    </div>
+</div>
+
+
 <h1>Booking</h1>
 {{#each bookingRooms}}
- <a href="/room/room/{{{this.dataValues.RoomId}}}">{{{this.dataValues.RoomId}}}</a>
- <form action="/booking/delete-booking-room/{{{ booking.dataValues.idBooking }}}" method="POST">
-        <input type="hidden" value="{{{this.dataValues.RoomId}}}" name="RoomId">
-        <input type="hidden" value="{{{ this.dataValues.BookingId }}}" name="BookingId">
-        <button type="submit">Delete</button>
-    </form>
+<a href="/room/room/{{{this.dataValues.RoomId}}}" class="btn btn-primary">{{{this.dataValues.RoomId}}}</a>
+<form action="/booking/delete-booking-room/{{{ booking.dataValues.idBooking }}}" method="POST">
+    <input type="hidden" value="{{{this.dataValues.RoomId}}}" name="RoomId">
+    <input type="hidden" value="{{{ this.dataValues.BookingId }}}" name="BookingId">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
 {{/each}}
 <form action="/booking/add-booking-room" method="POST">
-    <div>
-        <label for="startDate">Start Date</label>
-        <input type="date" name="startDate" id="startDate">
-
-        <label for="endDate">End Date</label>
-        <input type="date" name="endDate" id="endDate">
-
-        <label for="idRoom">Room</label>
-        <select name="idRoom" id="idRoom">
-            {{#each rooms}}
-            <option value="{{{this.dataValues.idRoom}}}">{{{this.dataValues.roomNumber}}}</option>
-            {{/each}}
-        </select>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="startDate" class="form-label">Start Date</label>
+            <input type="date" name="startDate" id="startDate" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label for="endDate" class="form-label">End Date</label>
+            <input type="date" name="endDate" id="endDate" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label for="idRoom" class="form-label">Room</label>
+            <select name="idRoom" id="idRoom" class="form-select">
+                {{#each rooms}}
+                <option value="{{{this.dataValues.idRoom}}}">{{{this.dataValues.roomNumber}}}</option>
+                {{/each}}
+            </select>
+        </div>
     </div>
     <input type="hidden" value="{{{booking.dataValues.idBooking}}}" name="idBooking">
-    <button type="submit">Add Room in Booking</button>
-    <input type="reset" value="Reset">
+    <button type="submit" class="btn btn-primary">Add Room in Booking</button>
+    <input type="reset" value="Reset"  class="btn btn-secondary">
 </form>

@@ -46,7 +46,7 @@ const Employee = sequelize.define('Employee', {
         allowNull: false
     },
     salary : {
-        type: DataTypes.DECIMAL(5,2),
+        type: DataTypes.DECIMAL(10,2),
         allowNull: false
     },
     workShift: {

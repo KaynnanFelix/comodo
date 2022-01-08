@@ -1,9 +1,30 @@
-<h1>List of Rooms</h1>
 <div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/hotel/hotels">Hotels</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Rooms</li>
+        </ol>
+    </nav>
+    <h1>List of Rooms
+        <a href="/room/add-room" class="btn btn-outline-success btn-sm" role="button">New Room</a>
+    </h1>
     <div class="row">
         {{#each rooms}}
         <div class="col">
-            <a href="/room/room/{{{this.dataValues.idRoom}}}">{{{ this.dataValues.roomNumber }}}</a>
+            <div class="card {{#equals this.dataValues.status 'available'}}border-success{{/equals}} {{#equals this.dataValues.status 'not available'}}border-danger{{/equals}}"
+                style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{{ this.dataValues.roomNumber }}}/{{{ this.dataValues.floor }}} - {{{
+                        this.dataValues.name }}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{{ this.dataValues.type }}} {{{ this.dataValues.classRoom
+                        }}}</h6>
+                    <p class="card-text">{{{ this.dataValues.description }}}</p>
+                    <a href="/room/room/{{{this.dataValues.idRoom}}}" class="card-link">Informations</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Update At: {{{ this.dataValues.updatedAt }}}</small>
+                </div>
+            </div>
         </div>
         {{/each}}
     </div>

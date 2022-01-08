@@ -1,9 +1,25 @@
-<h1>List of Bookings</h1>
 <div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Bookings</li>
+        </ol>
+    </nav>
+    <h1>List of Bookings <a href="/booking/add-booking"class="btn btn-outline-success btn-sm" role="button">New Booking</a></h1>
     <div class="row">
         {{#each bookings}}
         <div class="col">
-            <a href="/booking/booking/{{{this.dataValues.idBooking}}}">{{{ this.dataValues.idBooking }}}</a>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{{this.dataValues.idBooking}}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{{this.dataValues.category}}}</h6>
+                    <p class="card-text">{{{ this.dataValues.HostIdHost }}}</p>
+                    <a href="/booking/booking/{{{this.dataValues.idBooking}}}" class="card-link">Informations</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Update At: {{{ this.dataValues.updatedAt }}}</small>
+                </div>
+            </div>
+
         </div>
         {{/each}}
     </div>

@@ -1,10 +1,27 @@
-<h1>List of Employees</h1>
 <div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Employees </li>
+        </ol>
+    </nav>
+    <h1>List of Employees <a href="/employee/add-employee" class="btn btn-outline-success btn-sm" role="button">New
+            Employee</a></h1>
     <div class="row">
         {{#each employees}}
         <div class="col">
-            <a href="/employee/employee/{{{this.dataValues.idEmployee}}}">{{{ this.dataValues.name }}}</a>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{{ this.dataValues.name }}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{{ this.dataValues.nationality }}}</h6>
+                    <p class="card-text">{{{ this.dataValues.job }}} {{{ this.dataValues.workShift }}}</p>
+                    <a href="/employee/employee/{{{this.dataValues.idEmployee}}}">Informations</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Update At: {{{ this.dataValues.updatedAt }}}</small>
+                </div>
+            </div>
         </div>
+
         {{/each}}
     </div>
 </div>

@@ -1,50 +1,81 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/employee/employees">Employees</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add Employee</li>
+    </ol>
+</nav>
+<h1>Employee Information</h1>
 <form action="/employee/add-employee" method="POST">
-    <div>
-        <h1>Employee Information</h1>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+        </div>
 
-        <label for="email">E-mail</label>
-        <input type="text" name="email" id="email">
 
-        <label for="phone">Phone</label>
-        <input type="text" name="phone" id="phone">
+        <div class="col-md-4">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="text" class="form-control" name="email" id="email" placeholder="E-mail">
+        </div>
 
-        <label for="nationality">Nationality</label>
-        <input type="text" name="nationality" id="nationality">
+        <div class="col-md-4">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
+        </div>
 
-        <label for="documentType">Document Type</label>
-        <input type="text" name="documentType" id="documentType">
+        <div class="col-md-2">
+            <label for="nationality" class="form-label">Nationality</label>
+            <input type="text" class="form-control" name="nationality" id="nationality" placeholder="Nationality">
+        </div>
 
-        <label for="documentNumber">Document Number</label>
-        <input type="text" name="documentNumber" id="documentNumber">
+        <div class="col-md-4">
+            <label for="documentType" class="form-label">Document Type</label>
+            <input type="text" class="form-control" name="documentType" id="documentType" placeholder="Document Type">
+        </div>
 
-        <label for="address">Address</label>
-        <input type="text" name="address" id="address">
+        <div class="col-md-6">
+            <label for="documentNumber" class="form-label">Document Number</label>
+            <input type="text" class="form-control" name="documentNumber" id="documentNumber"
+                placeholder="Document Number">
+        </div>
 
-        <label for="birthDate">Birth Date</label>
-        <input type="date" name="birthDate" id="birthDate">
+        <div class="col-md-8">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" name="address" id="address" placeholder="Address">
+        </div>
 
-        <label for="job">Job</label>
-        <select name="job" id="job">
-            <option value="manager" selected>Manager</option>
-            <option value="receptionist">Receptionistn</option>
-            <option value="maid">Maid</option>
-            <option value="security">Security</option>
-            <option value="cleaning">Cleaning</option>
-        </select>
+        <div class="col-md-4">
+            <label for="birthDate" class="form-label">Birth Date</label>
+            <input type="date" class="form-control" name="birthDate" id="birthDate">
+        </div>
 
-        <label for="salary">Salary</label>
-        <input type="number" name="salary" id="salary">
+        <div class="col-md-4">
+            <label for="job" class="form-label">Job</label>
+            <select name="job" id="job" class="form-select">
+                <option value="manager" selected>Manager</option>
+                <option value="receptionist">Receptionistn</option>
+                <option value="maid">Maid</option>
+                <option value="security">Security</option>
+                <option value="cleaning">Cleaning</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="workShift" class="form-label">Work Shift</label>
+            <select name="workShift" id="workShift" class="form-select">
+                <option value="morning" selected>Morning</option>
+                <option value="afternoon">Afternoon</option>
+                <option value="night">Night</option>
+            </select>
+        </div>
 
-        <label for="workShift">Work Shift</label>
-        <select name="workShift" id="workShift">
-            <option value="morning" selected>Morning</option>
-            <option value="afternoon">Afternoon</option>
-            <option value="night">Night</option>
-        </select>
+        <div class="col-md-4">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="number" class="form-control" name="salary" id="salary">
+        </div>
+
+
 
     </div>
-    <button type="submit">Add Employee</button>
-    <input type="reset" value="Reset">
+    <button type="submit" class="btn btn-primary">Add Employee</button>
+    <input type="reset" value="Reset" class="btn btn-secondary">
 </form>

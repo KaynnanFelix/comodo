@@ -1,28 +1,39 @@
-<h1>Hotel Informations</h1>
 <div class="container">
-    <div class="row">
-        <div class="col">
-        <h1>Hotel: {{{ hotel.dataValues.name }}}</h1>
-        <p>Stars: {{{ hotel.dataValues.stars }}}<i class="fas fa-star"></i></p>
-        <p>Type: {{{ hotel.dataValues.type }}}</p>
-        <p>Description: {{{ hotel.dataValues.description }}}</p>
-        {{#if hotel.dataValues.shuttle}}<i class="fas fa-shuttle-van"></i>{{/if}}
-        {{#if hotel.dataValues.parking}}<i class="fas fa-parking"></i>{{/if}}
-        {{#if hotel.dataValues.pool}}<i class="fas fa-swimmer" disabled></i>{{/if}}
-        {{#if hotel.dataValues.pet}}<i class="fas fa-paw"></i>{{/if}}
-        <p>Adress: {{{ hotel.dataValues.address }}} {{{hotel.dataValues.number}}} - {{{hotel.dataValues.complement}}}, {{{hotel.dataValues.district}}}, {{{hotel.dataValues.city}}}, {{{hotel.dataValues.state}}} - {{{hotel.dataValues.country}}}</p>
-        <p>Created At: {{{ hotel.dataValues.createdAt }}}</p>
-        <p>Update At: {{{ hotel.dataValues.updatedAt }}}</p>
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/hotel/hotels">Hotels</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{{hotel.dataValues.name}}}</li>
+        </ol>
+    </nav>
+    <div class="card text-center">
+        <div class="card-header">
+            <h1>{{{ hotel.dataValues.name }}}</h1>
         </div>
-        <a href="/hotel/edit-hotel/{{{ hotel.dataValues.idHotel }}}">Edit</a>
-        <a href="/room/rooms/?idHotel={{{ hotel.dataValues.idHotel }}}">Rooms</a>
-        <form action="/hotel/delete-hotel" method="POST">
-            <input type="hidden" value="{{{hotel.dataValues.idHotel}}}" name="idHotel">
-            <button type="submit">Delete</button>
-        </form>
+        <div class="card-body">
+            <h5 class="card-title">{{{ hotel.dataValues.type }}} {{{ hotel.dataValues.stars }}} <i
+                    class="fas fa-star"></i></h5>
+            <p class="card-text">{{{ hotel.dataValues.description }}}</p>
+            <p class="card-text"> {{#if hotel.dataValues.shuttle}}<i class="fas fa-shuttle-van"></i>{{/if}}
+                {{#if hotel.dataValues.parking}}<i class="fas fa-parking"></i>{{/if}}
+                {{#if hotel.dataValues.pool}}<i class="fas fa-swimmer" disabled></i>{{/if}}
+                {{#if hotel.dataValues.pet}}<i class="fas fa-paw"></i>{{/if}}</p>
+            <p>{{{ hotel.dataValues.address }}} {{{hotel.dataValues.number}}} - {{{hotel.dataValues.complement}}},
+                {{{hotel.dataValues.district}}}, {{{hotel.dataValues.city}}}, {{{hotel.dataValues.state}}} -
+                {{{hotel.dataValues.country}}}
+            </p>
+            <a href="/hotel/edit-hotel/{{{ hotel.dataValues.idHotel }}}" class="btn btn-primary">Edit</a>
+            <a href="/room/rooms/?idHotel={{{ hotel.dataValues.idHotel }}}" class="btn btn-primary">Rooms</a>
+            <form action="/hotel/delete-hotel" method="POST">
+                <input type="hidden" value="{{{hotel.dataValues.idHotel}}}" name="idHotel">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            <p>Created At: {{{ hotel.dataValues.createdAt }}}</p>
+            <p>Update At: {{{ hotel.dataValues.updatedAt }}}</p>
+        </div>
     </div>
 </div>
-<h2>E-mail</h2>
-{{#each emails}}
-<p>E-mail: {{{this.dataValues.email}}}</p>
-{{/each}}
+<!--<h2>E-mail</h2>
+    {{#each emails}}
+    <p>E-mail: {{{this.dataValues.email}}}</p>{{/each}}-->

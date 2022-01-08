@@ -1,18 +1,30 @@
-<h1>Host Informations</h1>
 <div class="container">
-    <h1>Name: {{{ host.dataValues.name }}}</h1>
-    <p>Birth Date: {{{ host.dataValues.birthDate }}}</p>
-    <p>email: {{{ host.dataValues.email }}}</p>
-    <p>Adress: {{{ host.dataValues.address }}}</p>
-    <p>Phone: {{{ host.dataValues.phone }}}</p>
-    <p>Nationality: {{{ host.dataValues.nationality}}}</p>
-    <p>Type: {{{ host.dataValues.type}}}</p>
-    <p>Document {{{host.dataValues.documentType}}}: {{{ host.dataValues.documentNumber }}}</p>
-    <p>Created At: {{{ host.dataValues.createdAt }}}</p>
-    <p>Update At: {{{ host.dataValues.updatedAt }}}</p>
-    <a href="/host/edit-host/{{{ host.dataValues.idHost }}}">Edit</a>
-    <form action="/host/delete-host" method="POST">
-        <input type="hidden" value="{{{host.dataValues.idHost}}}" name="idHost">
-        <button type="submit">Delete</button>
-    </form>
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/host/hosts">Hosts</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{{host.dataValues.name}}}</li>
+        </ol>
+    </nav>
+    <div class="card text-center">
+        <div class="card-header">
+            <h1>{{{ host.dataValues.name }}}</h1>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{{ host.dataValues.nationality}}} {{{ host.dataValues.type}}}</h5>
+            <p class="card-text">Birth Date: {{{ host.dataValues.birthDate }}}</p>
+            <p class="card-text">Email: {{{ host.dataValues.email }}}</p>
+            <p class="card-text">Phone: {{{ host.dataValues.phone }}}</p>
+            <p class="card-text">Adress: {{{ host.dataValues.address }}}</p>
+            <p class="card-text">Document {{{host.dataValues.documentType}}}: {{{ host.dataValues.documentNumber }}}</p>
+            <a href="/host/edit-host/{{{ host.dataValues.idHost }}}" class="btn btn-primary">Edit</a>
+            <form action="/host/delete-host" method="POST">
+                <input type="hidden" value="{{{host.dataValues.idHost}}}" name="idHost">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            <p>Created At: {{{ host.dataValues.createdAt }}}</p>
+            <p>Update At: {{{ host.dataValues.updatedAt }}}</p>
+        </div>
+    </div>
 </div>

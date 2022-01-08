@@ -1,18 +1,29 @@
-<h1>room Informations</h1>
 <div class="container">
-    <h1>Room Number: {{{ room.dataValues.roomNumber }}}</h1>
-    <p>Name: {{{ room.dataValues.name }}}</p>
-    <p>Description: {{{ room.dataValues.description }}}</p>
-    <p>Floor: {{{ room.dataValues.floor }}}</p>
-    <p>Type: {{{ room.dataValues.type }}}</p>
-    <p>Class Room: {{{ room.dataValues.classRoom}}}</p>
-    <p>Status: {{{room.dataValues.status}}}</p>
-    <p>Daily Cost: {{{ room.dataValues.dailyCost}}}</p>
-    <p>Created At: {{{ room.dataValues.createdAt }}}</p>
-    <p>Update At: {{{ room.dataValues.updatedAt }}}</p>
-    <a href="/room/edit-room/{{{ room.dataValues.idRoom }}}">Edit</a>
-    <form action="/room/delete-room" method="POST">
-        <input type="hidden" value="{{{room.dataValues.idRoom}}}" name="idRoom">
-        <button type="submit">Delete</button>
-    </form>
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/room/rooms/?idHotel={{{room.dataValues.HotelIdHotel}}}">Rooms</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{{room.dataValues.roomNumber}}}</li>
+        </ol>
+    </nav>
+    <div class="card text-center">
+        <div class="card-header">
+            <h1>{{{ room.dataValues.roomNumber }}}/{{{ room.dataValues.floor }}}</h1>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{{ room.dataValues.type }}}/{{{ room.dataValues.classRoom}}}</h5>
+            <p class="card-text">Name: {{{ room.dataValues.name }}}</p>
+            <p class="card-text">Description: {{{ room.dataValues.description }}}</p>
+            <p class="card-text">Status: {{{room.dataValues.status}}}</p>
+            <p class="card-text">Daily Cost: {{{ room.dataValues.dailyCost}}}</p>
+            <a href="/room/edit-room/{{{ room.dataValues.idRoom }}}" class="btn btn-primary">Edit</a>
+            <form action="/room/delete-room" method="POST">
+                <input type="hidden"  value="{{{room.dataValues.idRoom}}}" name="idRoom">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            <p>Created At: {{{ room.dataValues.createdAt }}}</p>
+            <p>Update At: {{{ room.dataValues.updatedAt }}}</p>
+        </div>
+    </div>
 </div>

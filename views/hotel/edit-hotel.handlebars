@@ -1,66 +1,107 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/hotel/hotels">Hotels</a></li>
+        <li class="breadcrumb-item"><a href="/hotel/hotel/{{{hotel.dataValues.idHotel}}}">{{{hotel.dataValues.name}}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit {{{hotel.dataValues.name}}}</li>
+    </ol>
+</nav>
+<h1>Hotel Information</h1>
 <form action="/hotel/edit-hotel" method="POST">
-    <div>
-        <h1>Hotel Information</h1>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" value="{{{ hotel.dataValues.name }}}">
-        <label for="stars">Stars</label>
-        <select name="stars" id="stars">
-            <option value="one" {{#equals hotel.dataValues.stars 'one'}}selected{{/equals}}>One</option>
-            <option value="two" {{#equals hotel.dataValues.stars 'two'}}selected{{/equals}}>Two</option>
-            <option value="three" {{#equals hotel.dataValues.stars 'three'}}selected{{/equals}}>Three</option>
-            <option value="four" {{#equals hotel.dataValues.stars 'four'}}selected{{/equals}}>Four</option>
-            <option value="five" {{#equals hotel.dataValues.stars 'five'}}selected{{/equals}}>Five</option>
-        </select>
-        <label for="type">Type</label>
-        <select name="type" id="type">
-            <option value="hotel" {{#equals hotel.dataValues.type 'hotel'}}selected{{/equals}}>Hotel</option>
-            <option value="resort" {{#equals hotel.dataValues.type 'resort'}}selected{{/equals}}>Resort</option>
-        </select>
-
-        <label for="description">Description</label>
-        <textarea type="text" name="description" id="description" rows="10" cols="60"
-            placeholder="{{{ hotel.dataValues.description }}}">{{{ hotel.dataValues.description }}}</textarea>
-    </div>
-    <div>
-        <h1>Hotel Services</h1>
-
-        <input type="checkbox" name="shuttle" id="shuttle" value="true" {{#if hotel.dataValues.shuttle }} checked {{/if}}>
-        <label for="shuttle">Shuttle</label>
-
-        <input type="checkbox" name="parking" id="parking" value="true" {{#if hotel.dataValues.parking }} checked {{/if}}>
-        <label for="parrking">Parking</label>
-
-        <input type="checkbox" name="pool" id="pool" value="true" {{#if hotel.dataValues.pool }} checked {{/if}}>
-        <label for="pool">Pool</label>
-
-        <input type="checkbox" name="pet" id="pet" value="true" {{#if hotel.dataValues.pet }} checked {{/if}}>
-        <label for="pet">Pet</label>
-    </div>
-    <div>
-        <h1>Address Information</h1>
-        <label for="address">Adress</label>
-        <input type="text" name="address" id="address" value="{{{ hotel.dataValues.address }}}">
-
-        <label for="number">Number</label>
-        <input type="text" name="number" id="number" value="{{{ hotel.dataValues.number }}}">
-
-        <label for="complement">Complement</label>
-        <input type="text" name="complement" id="complement" value="{{{ hotel.dataValues.complement }}}">
-
-        <label for="district">District</label>
-        <input type="text" name="district" id="district" value="{{{ hotel.dataValues.district }}}">
-
-        <label for="city">City</label>
-        <input type="text" name="city" id="city" value="{{{ hotel.dataValues.city }}}">
-
-        <label for="state">State</label>
-        <input type="text" name="state" id="state" value="{{{ hotel.dataValues.state }}}">
-
-        <label for="country">Country</label>
-        <input type="text" name="country" id="country" value="{{{ hotel.dataValues.country }}}">
+    <h2>Basic Informations</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Name" name="name" id="name"
+                value="{{{ hotel.dataValues.name }}}">
+        </div>
+        <div class="col-md-2">
+            <label for="stars" class="form-label">Stars</label>
+            <select name="stars" id="stars" class="form-select">
+                <option value="one" {{#equals hotel.dataValues.stars 'one' }}selected{{/equals}}>One</option>
+                <option value="two" {{#equals hotel.dataValues.stars 'two' }}selected{{/equals}}>Two</option>
+                <option value="three" {{#equals hotel.dataValues.stars 'three' }}selected{{/equals}}>Three</option>
+                <option value="four" {{#equals hotel.dataValues.stars 'four' }}selected{{/equals}}>Four</option>
+                <option value="five" {{#equals hotel.dataValues.stars 'five' }}selected{{/equals}}>Five</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="type" class="form-label">Type</label>
+            <select name="type" id="type" class="form-select">
+                <option value="hotel" {{#equals hotel.dataValues.type 'hotel' }}selected{{/equals}}>Hotel</option>
+                <option value="resort" {{#equals hotel.dataValues.type 'resort' }}selected{{/equals}}>Resort</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" name="description" id="description" rows="10" cols="60"
+                placeholder="{{{ hotel.dataValues.description }}}">{{{ hotel.dataValues.description }}}</textarea>
+        </div>
 
     </div>
-       <input type="hidden" value="{{{hotel.dataValues.idHotel}}}" name="idHotel">
-    <button type="submit">Edit Hotel</button>
-    <input type="reset" value="Reset">
+
+    <div class="row">
+        <h2>Hotel Services</h2>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="shuttle" id="shuttle" value="true" {{#if
+                hotel.dataValues.shuttle }} checked {{/if}}>
+            <label class="form-check-label" for="shuttle">Shuttle</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="parking" id="parking" value="true" {{#if
+                hotel.dataValues.parking }} checked {{/if}}>
+            <label class="form-check-label" for="parking">Parking</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="pool" id="pool" value="true" {{#if
+                hotel.dataValues.pool }} checked {{/if}}>
+            <label class="form-check-label" for="pool">Pool</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="pet" id="pet" value="true" {{#if hotel.dataValues.pet
+                }} checked {{/if}}>
+            <label class="form-check-label" for="pet">Pet</label>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Address Information</h2>
+        <div class="col-md-6">
+            <label for="address" class="form-label">Adress</label>
+            <input type="text" name="address" class="form-control" placeholder="Address" id="address"
+                value="{{{ hotel.dataValues.address }}}">
+        </div>
+        <div class="col-md-2">
+            <label for="number" class="form-label">Number</label>
+            <input type="text" name="number" class="form-control" placeholder="Number" id="number"
+                value="{{{ hotel.dataValues.number }}}">
+        </div>
+        <div class="col-md-4">
+            <label for="complement" class="form-label">Complement</label>
+            <input type="text" class="form-control" placeholder="Complement" name="complement" id="complement"
+                value="{{{ hotel.dataValues.complement }}}">
+        </div>
+        <div class="col">
+            <label for="district" class="form-label">District</label>
+            <input type="text" class="form-control" placeholder="District" name="district" id="district"
+                value="{{{ hotel.dataValues.district }}}">
+        </div>
+        <div class="col">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" placeholder="City" name="city" id="city"
+                value="{{{ hotel.dataValues.city }}}">
+        </div>
+        <div class="col">
+            <label for="state" class="form-label">State</label>
+            <input type="text" class="form-control" placeholder="State" name="state" id="state"
+                value="{{{ hotel.dataValues.city }}}">
+        </div>
+        <div class="col">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" class="form-control" placeholder="Country" name="country" id="country"
+                value="{{{ hotel.dataValues.country }}}">
+        </div>
+    </div>
+    <input type="hidden" value="{{{hotel.dataValues.idHotel}}}" name="idHotel">
+    <button type="submit" class="btn btn-primary">Edit Hotel</button>
+    <input type="reset" value="Reset" class="btn btn-secondary">
 </form>
