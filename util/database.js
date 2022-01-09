@@ -2,6 +2,8 @@ const { Sequelize } = require('sequelize');
 
 // Option 1: Passing a connection URI
 const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/dbname', {
+    dialect: 'postgres',
+    protocol: 'postgres',
     dialectOptions: {
         ssl: {
             require: true,
