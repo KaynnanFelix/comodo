@@ -1,9 +1,16 @@
 const { Sequelize } = require('sequelize');
 
 // Option 1: Passing a connection URI
-const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/dbname', { 
-    // schema: 'test' 
-}) // Example for postgres
+const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/dbname', {
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
+})
+// schema: 'test' 
+// Example for postgres
 
 async function testConnection() {
     try {
