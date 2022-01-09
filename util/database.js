@@ -22,7 +22,7 @@ const sequelize = new Sequelize('postgres://gszetujpncqrds:4da79d731b30182fb43ae
         }
     }
 })
-postgres://gszetujpncqrds:4da79d731b30182fb43aed2dafa0d0e2092d3bf3e6628cd0f8f3373a83b93069@ec2-54-196-105-177.compute-1.amazonaws.com:5432/d1nhehibva645h
+//postgres://gszetujpncqrds:4da79d731b30182fb43aed2dafa0d0e2092d3bf3e6628cd0f8f3373a83b93069@ec2-54-196-105-177.compute-1.amazonaws.com:5432/d1nhehibva645h
 // schema: 'test' 
 // Example for postgres
 
