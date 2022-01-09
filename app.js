@@ -49,7 +49,7 @@ app.use((req, res, next) => {
 })
 
 sequelize.sync().then(result => {
-    app.listen(port, (req, res) => {
+    app.listen(process.env.PORT || port, (req, res) => {
         console.log(`Server running on localhost:${port}`)
     })
 }).catch(err => {
